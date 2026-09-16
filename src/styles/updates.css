@@ -1,0 +1,38 @@
+#updates {
+    min-height: calc(100vh - 96px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+
+}
+
+#up {
+    width: 500px;
+    height: auto;
+}
+
+#updates .sub-title {
+    font-size: 3rem;
+}
+
+#update_content {
+    width: 50%;
+}
+
+#features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+}

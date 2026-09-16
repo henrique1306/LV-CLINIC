@@ -1,0 +1,77 @@
+#catalogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#planos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.plano {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    gap: 18px;
+    height: 500px;
+    width: 25%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.plano-db {
+    position: absolute;
+    background-color: #e9a409;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.563rem;
+    color: #fff9ea;
+    width: 70px;
+    height: 70px;
+    right: -10px;
+    top: -10px;
+    border-radius: 0px 37.5px 0px 42.5px;
+
+}
+
+.plano-description {
+    color: #434343;
+    text-align: justify;
+}
+
+
+
+#img1 {
+    height: 20%;
+    width: fit-content;
+
+}
+
+#img2 {
+    height: 20%;
+    width: fit-content;
+
+}
+
+#img3 {
+    height: 20%;
+    width: fit-content;
+
+}
+
+.plano-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

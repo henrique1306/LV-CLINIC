@@ -1,0 +1,15 @@
+footer {
+    background-color: #fff;
+}
+
+#footer-items {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8% 24px 8%;
+    align-items: center;
+}
+
+#copyrigth {
+    color: #1d1d1d;
+    font-weight: 500;
+}
