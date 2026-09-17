@@ -1,39 +1,193 @@
+/* ===== HEADER BASE ===== */
 header {
-    width: 100%;
-    padding: 28px 8%;
-    background-color: #ffff;
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 1000;
+    width: 100%;
 }
 
 #navbar {
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    gap: 20px;
+    position: relative;
+    width: 100%;
 }
 
 #nav_logo {
-    font-size: 24px;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #e9a209;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-style: normal;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 #nav_list {
-
     display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
     list-style: none;
-    gap: 48px;
 }
 
-.navs-item a {
+.nav-item a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #e9a209;
+    transition: 0.3s ease;
     text-decoration: none;
-    color: #1d1d1dad;
-    font-weight: 600;
 }
 
-.navs-item.active {
-    color: #1d1d1dad;
-    border-bottom: 3px solid #ffe100;
+.nav-item a:hover,
+.nav-item a.active {
+    background: #fff3cf;
+    color: #b87900;
 }
 
+.nav-item.mobile-refresh {
+    display: none;
+}
+
+/* ===== BOTÃO HAMBÚRGUER ===== */
+#menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+
+#menu-toggle:hover {
+    background: #fff3cf;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #e9a209;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===== MOBILE/TABLET (≤ 1170px) ===== */
+@media (max-width: 1170px) {
+
+    #navbar {
+        flex-wrap: nowrap;
+        padding: 12px 16px;
+    }
+
+    #menu-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    #navbar > .btn-default {
+        display: none;
+    }
+
+    #nav_list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 16px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        border-top: 1px solid #eef2f7;
+        transition: max-height 0.4s ease, opacity 0.3s ease,
+                    padding 0.4s ease, visibility 0.4s ease;
+        z-index: 999;
+    }
+
+    #nav_list.active {
+        max-height: 80vh;
+        overflow-y: auto;
+        opacity: 1;
+        visibility: visible;
+        padding: 12px 16px 20px;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-item a {
+        display: block;
+        width: 100%;
+        padding: 14px 12px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        text-align: left;
+    }
+
+    .nav-item.mobile-refresh {
+        display: block;
+        margin-top: 12px;
+        border-bottom: none;
+    }
+
+    .nav-item.mobile-refresh a {
+        background: linear-gradient(135deg, #e9a209, #ffcb45);
+        color: #ffffff !important;
+        padding: 14px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #nav_logo { font-size: 1.15rem; }
+    #menu-toggle { width: 40px; height: 40px; padding: 6px; }
+    #menu-toggle span { width: 22px; }
+}
