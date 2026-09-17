@@ -7,10 +7,13 @@
     <title>CLINIC+ - Paciente - Listagem</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="./src/styles/styles.css">
+    <link rel="stylesheet" href="./src/styles/header.css">
+    <link rel="stylesheet" href="./src/styles/footer.css">
+    <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    
+
     <?php include("./src/styles/navbar.php"); ?>
 
     <main id="contet">
@@ -20,7 +23,7 @@
             <div id="table">
                 <?php
                 require("./function/conexao.php");
-               
+
                 $sql = mysqli_query($conn, "SELECT id_paciente, nome, cpf, email, DATE_FORMAT(data_nascimento,'%d/%m/%Y' ) AS data_nascimento, telefone FROM paciente") or die(mysqli_error($conn));
 
                 echo "<table class='table table-striped'>";
@@ -48,18 +51,18 @@
                     echo "<td>" . $reg["telefone"] . "</td>";
                     echo "<td> 
                                 <form action = './function/deletar_paciente.php' method = 'post'> 
-                                    <input type = 'hidden' name = 'id_paciente' id= 'form_text' value = '" . $reg["id_paciente"] . "'>
+                                    <input type = 'hidden' name = 'id_paciente' value = '" . $reg["id_paciente"] . "'>
                                     <button type='submit' class='btn btn-danger'>Deletar</button> 
                                 </form> 
                             </td>";
                     echo "<td> 
                             <form action = './alterar_paciente.php' method = 'get'> 
-                                <input type = 'hidden' name = 'id_paciente' id= 'form_text' value = '" . $reg["id_paciente"] . "'>
+                                <input type = 'hidden' name = 'id_paciente' value = '" . $reg["id_paciente"] . "'>
                                 <button type='submit' class='btn btn-warning'>Alterar</button>
                              </form> 
                         </td>";
 
-                        echo "<td> 
+                    echo "<td> 
                             <form action='./listagem_atendimentos.php' method='get'> 
                                 <input type='hidden' name='id_paciente' value='" . $reg["id_paciente"] . "'>
                                 <button type='submit' class='btn btn-info'>Atendimentos</button>
@@ -75,26 +78,20 @@
             </div>
         </section>
     </main>
-</body>
-<footer class="footering">
-    <img src="/src/images/wave.svg" alt="">
-    <div id="footer-items">
-        <span id="copyrigth"> &copy 2026 LunarVoid</span>
 
-        <div class="social-media-buttons">
-            <a href="">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
+    <footer class="footering">
+        <img src="./src/images/wave.svg" alt="">
+        <div id="footer-items">
+            <span id="copyrigth"> &copy; 2026 LunarVoid</span>
+
+            <div class="social-media-buttons">
+                <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+            </div>
         </div>
+    </footer>
 
-    </div>
-
-</footer>
+</body>
 
 </html>
